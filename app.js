@@ -5,11 +5,18 @@
 // mongoose is used to connect/interact with MongoDB
 // validation (as its name implies) is used for validation
 
+// app.js
 const express = require('express');
+const connectDB = require('./config/db');
+
 const app = express();
 
+// Connect Database
+connectDB();
+
+// index
 app.get('/', (req, res) => res.send('Hello world!'));
 
+// PORT
 const port = process.env.PORT || 8082;
-
-app.listen(port, () => console.log(`Server running on port ${port}`));
+app.listen(port, () => console.log(`Server running on port ${port}`))
